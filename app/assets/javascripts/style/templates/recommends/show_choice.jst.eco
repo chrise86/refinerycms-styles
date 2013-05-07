@@ -1,0 +1,72 @@
+<div class="content result">
+  <div class="result_image">
+    <img src="/result_sea.jpg"/>
+    <div class="description">Your Best Choice is: <%= @data.name %></div>
+  </div>
+  <div class="text">
+    <div class="title">A trip to the beach!</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend fermentum mauris, sit amet feugiat mi elementum ut. Suspendisse potenti. Aliquam vel arcu ac sapien convallis condimentum pulvinar non justo. Sed nec nulla eu libero lacinia iaculis ut ac mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras ultricies sagittis rhoncus.</p>
+    <p>Quisque dignissim dolor et nulla viverra dapibus. Nunc at volutpat metus. In hac habitasse platea dictumst. Praesent sed velit et neque varius luctus. Duis neque diam, auctor sit amet sagittis tristique, commodo eget dolor. Pellentesque consequat, elit sed sagittis scelerisque, augue massa convallis diam, sit amet rhoncus nibh nunc egestas orci.</p>
+    <p>Duis nec justo vel risus pulvinar porttitor sed lobortis diam. Proin sed nibh in velit malesuada pulvinar. Vivamus sit amet consectetur libero. Nulla tempus ligula in libero placerat vitae viverra arcu luctus. In hac habitasse platea dictumst.</p>
+    <p>Phasellus nisi ante, pellentesque sit amet facilisis nec, faucibus eget velit. Aliquam cursus est at ante vulputate sit amet tristique lorem feugiat. Fusce cursus suscipit purus, rhoncus fermentum ipsum luctus vel. Nullam sodales aliquam sollicitudin. Nam vestibulum orci vel velit fringilla aliquet. Ut sit amet congue erat.</p>
+    <p>Suspendisse dignissim ultricies diam, vel fringilla mauris pharetra sit amet nunc at volutpat metus. In hac habitasse platea dictumst. Praesent sed velit et neque varius luctus.</p> 
+  </div>
+  
+  <div class="title">Some ideas for you</div>
+  <hr>
+  <div class="object">
+    <img src="/sea_travel1/1.jpg">
+    <div class="description">
+      <div class="title">
+        Fusce in odio nec orci tempor
+      </div>
+      <p>Praesent ultrices iaculis quam, in tristique velit pellentesque eu. Fusce in odio nec orci tempor iaculis. Mauris cursus cursus tellus, nec interdum urna lacinia vitae. Etiam vel turpis risus, eu tincidunt tellus. Suspendisse auctor lobortis augue a malesuada.</p>
+      <p>Maecenas consectetur urna a nisl laoreet vel interdum nisl consectetur. Vestibulum euismod, massa vel iaculis dictum, urna ante aliquet nisi, sit amet posuere odio sapien ut dui.</p>
+      <div class="caracteristics">
+        <i class="icon-map-marker"></i> <span>Male, south of the Maldives</span>
+        <br>
+        <i class="icon-money"></i> <span>Between 200 and 600 dollars by night</span>
+        <br>
+        <i class="icon-plane"></i> <span>7 hours flight from Beijing, 6 from Shanghai</span>
+        <br>
+        <i class="icon-info-sign"></i> <span>More informations</span>
+      </div>
+    </div>
+  </div>
+  <div class="object">
+    <img src="/sea_travel1/3.jpg">
+    <div class="description">
+      <div class="title">
+        Aenean sed est id sem congue
+      </div>
+      <p>Pellentesque eu sapien nec massa rhoncus malesuada. Pellentesque in commodo ligula. Suspendisse pharetra tincidunt diam, id mollis dui euismod a. Fusce eget malesuada est. Proin varius gravida nibh at rhoncus. Aenean sed est id sem congue sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+      <div class="caracteristics">
+        <i class="icon-map-marker"></i> <span>Male, south of the Maldives</span>
+        <br>
+        <i class="icon-money"></i> <span>Between 200 and 600 dollars by night</span>
+        <br>
+        <i class="icon-plane"></i> <span>7 hours flight from Beijing, 6 from Shanghai</span>
+        <br>
+        <i class="icon-info-sign"></i> <span>More informations</span>
+      </div>
+    </div>
+  </div>
+  <div class="object">
+    <img src="/sea_travel1/4.jpg">
+    <div class="description">
+      <div class="title">
+        Pellentesque in commodo ligula, pharetra tincidunt
+      </div>
+      <p>Pellentesque eu sapien nec massa rhoncus malesuada. Pellentesque in commodo ligula. Suspendisse pharetra tincidunt diam, id mollis dui euismod a. Fusce eget malesuada est. Proin varius gravida nibh at rhoncus. Aenean sed est id sem congue sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p> 
+      <div class="caracteristics">
+        <i class="icon-map-marker"></i> <span>Male, south of the Maldives</span>
+        <br>
+        <i class="icon-money"></i> <span>Between 200 and 600 dollars by night</span>
+        <br>
+        <i class="icon-plane"></i> <span>7 hours flight from Beijing, 6 from Shanghai</span>
+        <br>
+        <i class="icon-info-sign"></i> <span>More informations</span>
+      </div>
+    </div>
+  </div>
+</div>

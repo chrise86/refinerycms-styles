@@ -1,0 +1,207 @@
+@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
+@import "bootstrap/mixins";
+
+body {
+  font-family:Georgia;
+  padding: 0;
+  margin: 0;
+  color:#444;
+  font-size:14px;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+.background {
+  background-image: image-url("noise.png"), linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background-attachment: fixed;
+
+}
+
+.background > .title {
+  color:#8FE1F3;
+  text-shadow: 2px 2px 0 #044d58;
+  text-align:center;
+  margin-bottom:70px;
+
+  .title {
+    font-size:70px;
+    font-family: Georgia;
+  }
+
+  .sentence {
+    font-size:50px;
+    line-height: 45px;
+    font-family:'Pacifico', cursive;
+  }
+}
+
+.question {
+  font-family:'Pacifico', cursive;
+  text-align:center;
+  font-size: 20px;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 0 white;
+}
+
+.choices {
+  text-align:center;
+  margin-bottom:100px;
+
+  .choice {
+    @include transition(border-color linear .3s);
+    position: relative;
+    display:inline-block;
+    margin: 20px 10px;
+    vertical-align: top;
+    border:10px solid white;
+    box-shadow:0px 2px 5px #888;
+    background:white;
+    font-family:'Pacifico', cursive;
+    font-size: 20px;
+    line-height: 0;
+    cursor:pointer;
+    z-index:998;
+  }
+
+  .choice > .description {
+    line-height:30px;
+    padding-top: 5px;
+    background:white;
+    @include transition(background-color linear .3s);
+  }
+
+  .over_choice {
+    z-index:999;
+  }
+
+  .choice:hover, .choice:hover > .description {
+    border-color:#8FE1F3;
+    background-color:#8FE1F3;
+    @include transition-duration(.3s);
+  }
+
+  .choice > img {
+    max-height: 350px;
+    max-width: 400px;
+  }
+
+  .choice.left {
+    @include rotate(-9deg);
+  }
+
+  .choice.right {
+    @include rotate(9deg);
+  }
+}
+
+
+.buttons {
+  text-align:center;
+
+  .button {
+    padding:5px 10px;
+    display:inline-block;
+    background:#61b87b;
+    color:#EEEEEE;
+    font-family:Georgia;
+    border-radius:3px;
+    text-shadow: 1px 1px 0 #044d58;
+    min-width:100px;
+    text-align:center;
+    font-weight:bold;
+    text-transform:uppercase;
+    cursor:pointer;
+    @include transition(border-color linear .3s);
+  }
+  
+  .button:hover {
+    background:#13bd47;
+    color:white;
+    @include transition-duration(.3s);
+  }
+}
+
+.content {
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.result_image {
+  display:inline-block;
+  border:10px solid white;
+  box-shadow:0px 2px 5px #888;
+  @include rotate(-1deg);
+  margin-bottom: 30px;
+  font-family:'Pacifico', cursive;
+  font-size: 20px;
+}
+
+.result_image > img {
+  max-width:760px;
+}
+
+.text {
+  text-align:justify;
+  @include content-columns(3, 30px);
+  margin-bottom:20px;
+}
+
+.text > .title, .result > .title {
+  font-family:'Pacifico', cursive;
+  font-size:40px;
+  margin-bottom: 10px;
+  color: #8FE1F3;
+  text-align: center;
+  text-shadow: 2px 2px 0 #044D58;
+}
+
+.result > .title {
+  text-align:left;
+  margin: 0;
+}
+
+.object {
+  margin-bottom:40px;
+}
+.object > .title, .object > .description > .title {
+  font-family:'Pacifico', cursive;
+  font-size:24px;
+}
+
+.object > img {
+  max-width:200px;
+  float: left;
+  margin-top: 9px;
+}
+.object > .description {
+  margin-left:220px;
+  text-align: justify;
+}
+.object > .description > p {
+  margin-top:0px;
+} 
+.object > .description > img {
+  max-width:100px;
+}
+
+.object > .description > .caracteristics > i {
+  float: left;
+  width: 10px;
+}
+.object > .description > .caracteristics > span {
+  margin-left:15px;
+}
+
+hr {
+  background: none repeat scroll 0 0 #EEEEEE;
+  border: 0 none;
+  height: 1px;
+  margin: 0 0 20px 0;
+}

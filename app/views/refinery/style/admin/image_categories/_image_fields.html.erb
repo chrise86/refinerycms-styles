@@ -1,0 +1,14 @@
+<tr class="fields">
+  <td class="image">
+    <%= image_tag f.object.thumb_url %>
+    <%= f.hidden_field :image_id %>
+  </td>
+  <td><%= f.text_field :name, :class => 'input-small' %></td>
+  <%= f.fields_for :dynamic_attributes do |builder| %>
+    <% dynamic_attributes = f.object.dynamic_attributes || {} %>
+    <% @game.styles.each do |style| %>
+      <td><%= builder.text_field style.id.to_s, :class => 'input-small', :value => dynamic_attributes[style.id.to_s] %></td>
+    <% end %>
+  <% end %>
+  <td><%= link_to_remove_fields t('.remove_image'), f %></td>
+</tr>

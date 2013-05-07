@@ -1,0 +1,77 @@
+nl:
+  refinery:
+    plugins:
+      image_categories:
+        title: Image Categories
+      games:
+        title: Games
+      styles:
+        title: Styles
+    style:
+      admin:
+        image_categories:
+          actions:
+            create_new: Maak een nieuwe Image Category
+            reorder: Wijzig de volgorde van de Image Categories
+            reorder_done: Klaar met het wijzingen van de volgorde van de Image Categories
+          records:
+            title: Image Categories
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Image Categories. Druk op 'Maak een nieuwe
+              Image Category' om de eerste aan te maken.
+          image_category:
+            view_live_html: Bekijk deze image category op de website <br/><em>(opent
+              een nieuw venster)</em>
+            edit: Bewerk deze image category
+            delete: Verwijder deze image category voor eeuwig
+        games:
+          actions:
+            create_new: Maak een nieuwe Game
+            reorder: Wijzig de volgorde van de Games
+            reorder_done: Klaar met het wijzingen van de volgorde van de Games
+          records:
+            title: Games
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Games. Druk op 'Maak een nieuwe Game' om
+              de eerste aan te maken.
+          game:
+            view_live_html: Bekijk deze game op de website <br/><em>(opent een nieuw
+              venster)</em>
+            edit: Bewerk deze game
+            delete: Verwijder deze game voor eeuwig
+        styles:
+          actions:
+            create_new: Maak een nieuwe Style
+            reorder: Wijzig de volgorde van de Styles
+            reorder_done: Klaar met het wijzingen van de volgorde van de Styles
+          records:
+            title: Styles
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Styles. Druk op 'Maak een nieuwe Style'
+              om de eerste aan te maken.
+          style:
+            view_live_html: Bekijk deze style op de website <br/><em>(opent een nieuw
+              venster)</em>
+            edit: Bewerk deze style
+            delete: Verwijder deze style voor eeuwig
+      image_categories:
+        show:
+          other: Andere Image Categories
+      games:
+        show:
+          other: Andere Games
+      styles:
+        show:
+          other: Andere Styles
+  activerecord:
+    attributes:
+      refinery/style/image_category:
+        portfolio: Portfolio
+        game: Game
+      refinery/style/game:
+        name: Name
+        description: Description
+      refinery/style/style:
+        name: Name
+        page: Page
+        url: Url

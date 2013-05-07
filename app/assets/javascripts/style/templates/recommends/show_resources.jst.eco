@@ -1,0 +1,31 @@
+<div class="question">
+  <%= @category.get('description') %>
+</div>
+
+<% images = @category.get('images') %>
+<% left_image = images.at(0) %>
+<% right_image = images.at(1) %>
+
+<div class="choices">
+  <a class="next" data-id="<%= left_image.get 'id' %>">
+    <div class="choice left">
+      <img src="<%= left_image.get 'image_url' %>">
+      <div class="description"><%= left_image.get 'title' %></div>
+    </div>
+  </a>
+  <a class="next" data-id="<%= right_image.get 'id' %>">
+    <div class="choice right">
+      <img src="<%= right_image.get 'image_url' %>">
+      <div class="description"><%= right_image.get 'title' %></div>
+    </div>
+  </a>
+</div>
+
+<div class="row cleanfix"></div>
+<% if @page > 0: %>
+  <div class="buttons">
+    <a class="button result">See the result now!</a>
+    <a class="button">Skip</a>
+    <a class="button pre">Go Back</a>
+  </div>
+<% end %>

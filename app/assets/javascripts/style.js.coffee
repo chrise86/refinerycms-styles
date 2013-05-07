@@ -1,0 +1,10 @@
+#= require jquery
+#= require underscore
+#= require backbone
+#= require backbone-relational
+#= require style/main
+#= require_tree ./style/templates
+#= require_tree ./style/models
+#= require_tree ./style/collections
+#= require_tree ./style/views
+#= require_tree ./style/routers

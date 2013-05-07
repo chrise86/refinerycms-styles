@@ -1,0 +1,70 @@
+en:
+  refinery:
+    plugins:
+      games:
+        title: Games
+      styles:
+        title: Styles
+    style:
+      admin:
+        games:
+          actions:
+            create_new: Add New Game
+            reorder: Reorder Games
+            reorder_done: Done Reordering Games
+          records:
+            title: Games
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Games yet. Click "Add New Game" to add your
+              first game.
+          game:
+            view_live_html: View this game live <br/><em>(opens in a new window)</em>
+            edit: Edit this game
+            edit_images: List all images
+            delete: Remove this game forever
+          form:
+            included_styles: Included Styles
+            add_style: Add New Style
+          style_fields:
+            name: Name
+            url: URL
+            remove_style: Remove
+        image_categories:
+          actions:
+            create_new: Add New Image Category
+            reorder: Reorder Image Category
+            reorder_done: Done Reordering Image Category
+          records:
+            title: Image Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Image Categories yet. Click "Add New Image Category" to add your
+              first image category.
+          image_category:
+            view_live_html: View this image category live <br/><em>(opens in a new window)</em>
+            edit: Edit this image category
+            delete: Remove this image category forever
+          form:
+            create_new: Add New Image
+          image_fields:
+            remove_image: Remove Image
+      image_categories:
+        show:
+          other: Other Image Categories
+      games:
+        show:
+          other: Other Games
+      styles:
+        show:
+          other: Other Styles
+  activerecord:
+    attributes:
+      refinery/style/image_category:
+        portfolio: Portfolio
+        game: Game
+      refinery/style/game:
+        name: Name
+        description: Description
+      refinery/style/style:
+        name: Name
+        page: Page
+        url: Url

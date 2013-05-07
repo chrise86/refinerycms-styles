@@ -1,0 +1,4 @@
+<% @games = @games.includes :styles %>
+
+<%= will_paginate @games if Refinery::Style::Admin::GamesController.pageable? %>
+<%= render 'sortable_list' %>

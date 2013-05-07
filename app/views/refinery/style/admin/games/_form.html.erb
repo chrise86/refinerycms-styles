@@ -1,0 +1,47 @@
+<%= form_for [refinery, :style_admin, @game] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @game,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :description -%>
+    <%= f.text_area :description, :class => 'widest', :rows => 4 -%>
+  </div>
+
+  <div class='field style_list'>
+    <span class='label_with_help'>
+      <%= f.label :styles, t('.included_styles'), :class => "title_label" %>
+      <%= link_to_add_fields "(#{t('.add_style')})", f, :styles %>
+    </span>
+    <ul id='styles' class='checkboxes'>
+      <%= f.fields_for :styles do |builder| %>
+        <%= render "style_fields", :f => builder %>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.games.admin.games.game'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @game.name) -%>
+<% end -%>
+
+<% content_for :javascripts do %>
+  <script>
+    function remove_fields(link) {
+      $(link).prev("input[type=hidden]").val("1");
+      $(link).closest(".fields").hide();
+    }
+
+    function add_fields(link, association, content) {
+      var new_id = new Date().getTime();
+      var regexp = new RegExp("new_" + association, "g");
+      $('#'+association).append(content.replace(regexp, new_id));
+    }
+  </script>
+<% end %>

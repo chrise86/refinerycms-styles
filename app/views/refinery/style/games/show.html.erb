@@ -1,0 +1,21 @@
+<div class="background">
+  <div class="title">
+    <div class="title"><%= @game.name %></div>
+    <div class="sentence">finds your style</div>
+  </div>
+
+  <div id="container">
+    <h3>Loading...</h3>
+  </div>
+
+</div>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      Style.Models.Image.prototype.idAttribute = 'cid';
+      new Style.Routers.RecommendShow(<%= raw @categories.to_json %>);
+      Backbone.history.start();
+    })
+  </script>
+<% end %>

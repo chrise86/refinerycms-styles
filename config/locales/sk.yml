@@ -1,0 +1,75 @@
+sk:
+  refinery:
+    plugins:
+      image_categories:
+        title: Image Categories
+      games:
+        title: Games
+      styles:
+        title: Styles
+    style:
+      admin:
+        image_categories:
+          actions:
+            create_new: Pridať Image Category
+            reorder: Preusporiadať Image Categories
+            reorder_done: Koniec radenia Image Categories
+          records:
+            title: Image Categories
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Image Categories. Kliknite na "Pridať
+              Image Category" pre pridanie prvého image category.
+          image_category:
+            view_live_html: Zobraziť náhľad image category<br/><em>(otvorí sa v novom
+              okne)</em>
+            edit: Upraviť image category
+            delete: Zmazať image category
+        games:
+          actions:
+            create_new: Pridať Game
+            reorder: Preusporiadať Games
+            reorder_done: Koniec radenia Games
+          records:
+            title: Games
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Games. Kliknite na "Pridať Game"
+              pre pridanie prvého game.
+          game:
+            view_live_html: Zobraziť náhľad game<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť game
+            delete: Zmazať game
+        styles:
+          actions:
+            create_new: Pridať Style
+            reorder: Preusporiadať Styles
+            reorder_done: Koniec radenia Styles
+          records:
+            title: Styles
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Styles. Kliknite na "Pridať Style"
+              pre pridanie prvého style.
+          style:
+            view_live_html: Zobraziť náhľad style<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť style
+            delete: Zmazať style
+      image_categories:
+        show:
+          other: Daľšie Image Categories
+      games:
+        show:
+          other: Daľšie Games
+      styles:
+        show:
+          other: Daľšie Styles
+  activerecord:
+    attributes:
+      refinery/style/image_category:
+        portfolio: Portfolio
+        game: Game
+      refinery/style/game:
+        name: Name
+        description: Description
+      refinery/style/style:
+        name: Name
+        page: Page
+        url: Url

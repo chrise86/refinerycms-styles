@@ -1,0 +1,72 @@
+zh-CN:
+  refinery:
+    plugins:
+      image_categories:
+        title: Image Categories
+      games:
+        title: Games
+      styles:
+        title: Styles
+    style:
+      admin:
+        image_categories:
+          actions:
+            create_new: 建立新的 Image Category
+            reorder: 对 Image Categories 重新排序
+            reorder_done: 对 Image Categories 的重新排序结束
+          records:
+            title: Image Categories
+            sorry_no_results: 对不起，未找到结果。
+            no_items_yet: 目前没有 Image Categories . 点击 "Add New Image Category" 创建一个image
+              category.
+          image_category:
+            view_live_html: 查看 image category 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 image category
+            delete: 永久删除 image category
+        games:
+          actions:
+            create_new: 建立新的 Game
+            reorder: 对 Games 重新排序
+            reorder_done: 对 Games 的重新排序结束
+          records:
+            title: Games
+            sorry_no_results: 对不起，未找到结果。
+            no_items_yet: 目前没有 Games . 点击 "Add New Game" 创建一个game.
+          game:
+            view_live_html: 查看 game 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 game
+            delete: 永久删除 game
+        styles:
+          actions:
+            create_new: 建立新的 Style
+            reorder: 对 Styles 重新排序
+            reorder_done: 对 Styles 的重新排序结束
+          records:
+            title: Styles
+            sorry_no_results: 对不起，未找到结果。
+            no_items_yet: 目前没有 Styles . 点击 "Add New Style" 创建一个style.
+          style:
+            view_live_html: 查看 style 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 style
+            delete: 永久删除 style
+      image_categories:
+        show:
+          other: 其他 Image Categories
+      games:
+        show:
+          other: 其他 Games
+      styles:
+        show:
+          other: 其他 Styles
+  activerecord:
+    attributes:
+      refinery/style/image_category:
+        portfolio: Portfolio
+        game: Game
+      refinery/style/game:
+        name: Name
+        description: Description
+      refinery/style/style:
+        name: Name
+        page: Page
+        url: Url

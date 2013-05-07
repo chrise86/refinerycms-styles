@@ -1,0 +1,77 @@
+nb:
+  refinery:
+    plugins:
+      image_categories:
+        title: Image Categories
+      games:
+        title: Games
+      styles:
+        title: Styles
+    style:
+      admin:
+        image_categories:
+          actions:
+            create_new: Lag en ny Image Category
+            reorder: Endre rekkefølgen på Image Categories
+            reorder_done: Ferdig å endre rekkefølgen Image Categories
+          records:
+            title: Image Categories
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Image Categories enda. Klikk på "Lag en ny
+              Image Category" for å legge til din første image category.
+          image_category:
+            view_live_html: Vis hvordan denne image category ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne image category
+            delete: Fjern denne image category permanent
+        games:
+          actions:
+            create_new: Lag en ny Game
+            reorder: Endre rekkefølgen på Games
+            reorder_done: Ferdig å endre rekkefølgen Games
+          records:
+            title: Games
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Games enda. Klikk på "Lag en ny Game" for å
+              legge til din første game.
+          game:
+            view_live_html: Vis hvordan denne game ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne game
+            delete: Fjern denne game permanent
+        styles:
+          actions:
+            create_new: Lag en ny Style
+            reorder: Endre rekkefølgen på Styles
+            reorder_done: Ferdig å endre rekkefølgen Styles
+          records:
+            title: Styles
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Styles enda. Klikk på "Lag en ny Style" for
+              å legge til din første style.
+          style:
+            view_live_html: Vis hvordan denne style ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne style
+            delete: Fjern denne style permanent
+      image_categories:
+        show:
+          other: Andre Image Categories
+      games:
+        show:
+          other: Andre Games
+      styles:
+        show:
+          other: Andre Styles
+  activerecord:
+    attributes:
+      refinery/style/image_category:
+        portfolio: Portfolio
+        game: Game
+      refinery/style/game:
+        name: Name
+        description: Description
+      refinery/style/style:
+        name: Name
+        page: Page
+        url: Url

@@ -1,0 +1,5 @@
+<li class="fields <%= cycle("on", "on-hover") %>">
+  <%= f.text_field :name, :placeholder => t('.name') %>
+  <%= f.text_field :url, :placeholder => t('.url') %>
+  <%= link_to_remove_fields t('.remove_style'), f %>
+</li>

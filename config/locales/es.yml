@@ -1,0 +1,77 @@
+es:
+  refinery:
+    plugins:
+      image_categories:
+        title: Image Categories
+      games:
+        title: Games
+      styles:
+        title: Styles
+    style:
+      admin:
+        image_categories:
+          actions:
+            create_new: Crear nuevo image category
+            reorder: Reordenar image categories
+            reorder_done: Reordenación de image categories completada
+          records:
+            title: Image Categories
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay image categories todavía. Pulsa en "Crear nuevo Image
+              Category" para crear tu primer image category.
+          image_category:
+            view_live_html: Ver este image category como abierto al público <br/><em>(abre
+              en ventana nueva)</em>
+            edit: Editar este image category
+            delete: Borrar este image category para siempre
+        games:
+          actions:
+            create_new: Crear nuevo game
+            reorder: Reordenar games
+            reorder_done: Reordenación de games completada
+          records:
+            title: Games
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay games todavía. Pulsa en "Crear nuevo Game" para crear
+              tu primer game.
+          game:
+            view_live_html: Ver este game como abierto al público <br/><em>(abre en
+              ventana nueva)</em>
+            edit: Editar este game
+            delete: Borrar este game para siempre
+        styles:
+          actions:
+            create_new: Crear nuevo style
+            reorder: Reordenar styles
+            reorder_done: Reordenación de styles completada
+          records:
+            title: Styles
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay styles todavía. Pulsa en "Crear nuevo Style" para
+              crear tu primer style.
+          style:
+            view_live_html: Ver este style como abierto al público <br/><em>(abre
+              en ventana nueva)</em>
+            edit: Editar este style
+            delete: Borrar este style para siempre
+      image_categories:
+        show:
+          other: Otros image categories
+      games:
+        show:
+          other: Otros games
+      styles:
+        show:
+          other: Otros styles
+  activerecord:
+    attributes:
+      refinery/style/image_category:
+        portfolio: Portfolio
+        game: Game
+      refinery/style/game:
+        name: Name
+        description: Description
+      refinery/style/style:
+        name: Name
+        page: Page
+        url: Url
