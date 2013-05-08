@@ -19,7 +19,7 @@ class Style.Views.GamesShow extends Backbone.View
     @choices.push resource_id if resource_id
     if @page < @page_total
       @updateImages()
-    else
+    else if @page == @page_total
       @choice(e)
         
     false

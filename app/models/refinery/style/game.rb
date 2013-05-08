@@ -53,9 +53,13 @@ module Refinery
       end
 
       def trace env, choices
-        click = clicks.new
-        click.trace env, choices
-        click.save
+        Thread.new do
+          click = clicks.new
+          click.trace env, choices
+          click.save
+
+          ActiveRecord::Base.connection.close
+        end
       end
     end
   end
