@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <%= render "/refinery/html_tag" %>
   <% site_bar = render('/refinery/site_bar', :head => true) -%>
-  <head>
-    <%= render "/refinery/head" %>
-  </head>
+  <%= render "/refinery/head" %>
   <body>
     <%= yield %>
     <%= render "/refinery/javascripts" %>
