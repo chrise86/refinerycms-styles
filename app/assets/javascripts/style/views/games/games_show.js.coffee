@@ -25,9 +25,11 @@ class Style.Views.GamesShow extends Backbone.View
     false
 
   choice: (e) ->
-    console.log @choices
     $.post window.location.pathname+"/choice", choices: @choices, (data) =>
-      @$("#resources").html(@choice_template(data: data))
+      if data.url
+        top.location.href = data.url
+      else
+        @$("#resources").html(@choice_template(data: data))
 
     false
 

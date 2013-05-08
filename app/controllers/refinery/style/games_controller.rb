@@ -28,6 +28,8 @@ module Refinery
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @game in the line below:
         present(@page)
+
+        render :layout => 'refinery/iframe' if params[:iframe]
       end
 
     def choice
