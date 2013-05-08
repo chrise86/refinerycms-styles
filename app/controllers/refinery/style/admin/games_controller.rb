@@ -7,7 +7,10 @@ module Refinery
         crudify :'refinery/style/game',
                 :title_attribute => 'name', :xhr_paging => true
 
+        prepend_before_filter :find_game, :only => [:update, :destroy, :edit, :show, :edit_categories]
 
+        def edit_categories
+        end
       end
     end
   end

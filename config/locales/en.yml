@@ -29,29 +29,13 @@ en:
             name: Name
             url: URL
             remove_style: Remove
-        image_categories:
-          actions:
-            create_new: Add New Image Category
-            reorder: Reorder Image Category
-            reorder_done: Done Reordering Image Category
-          records:
-            title: Image Categories
-            sorry_no_results: Sorry! There are no results found.
-            no_items_yet: There are no Image Categories yet. Click "Add New Image Category" to add your
-              first image category.
-          image_category:
-            view_live_html: View this image category live <br/><em>(opens in a new window)</em>
-            edit: Edit this image category
-            delete: Remove this image category forever
-          form:
-            create_new: Add New Image
-          image_category_fields:
-            create_new: Add New Image
-            remove_image_category: Remove Image Category
-          index:
+          edit_categories:
             create_new: Add New Image Category
           image_fields:
             remove_image: Remove Image
+          image_category_fields:
+            create_new: Add New Image
+            remove_image_category: Remove Image Category
       image_categories:
         show:
           other: Other Image Categories

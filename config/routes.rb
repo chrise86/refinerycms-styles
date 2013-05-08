@@ -17,15 +17,19 @@ Refinery::Core::Engine.routes.append do
           post :update_positions
         end
 
-        resources :image_categories, :except => :show do
-          collection do
-            post :update_positions
-          end
+        member do
+          get :edit_categories
         end
+
+        # resources :image_categories, :except => :show do
+        #   collection do
+        #     post :update_positions
+        #   end
+        # end
       end
 
-      resources :image_categories, :except => :show
-      resources :images, :except => :show
+      # resources :image_categories, :except => :show
+      # resources :images, :except => :show
 
     end
   end
