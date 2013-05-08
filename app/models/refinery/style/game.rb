@@ -7,6 +7,8 @@ module Refinery
       has_many :styles
       has_many :image_categories
       has_many :images, through: :image_categories
+
+      has_many :clicks
       accepts_nested_attributes_for :styles, :allow_destroy => true
       accepts_nested_attributes_for :image_categories, :allow_destroy => true
 
@@ -48,6 +50,12 @@ module Refinery
         end
         logger.info "  Result: #{ret}"
         ret
+      end
+
+      def trace env, choices
+        click = clicks.new
+        click.trace env, choices
+        click.save
       end
     end
   end

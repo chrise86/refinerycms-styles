@@ -35,6 +35,7 @@ module Refinery
     def choice
       @game = Game.find(params[:id])
       @images = Image.find_all_by_id(params[:choices])
+      @game.trace env, params[:choices]
        
       respond_to do |format|
         format.json { render json: @game.make_choice(@images).to_json }

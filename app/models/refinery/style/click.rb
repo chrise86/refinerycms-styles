@@ -1,0 +1,33 @@
+# require 'geoip'
+# require 'useragent'
+
+class Refinery::Style::Click < ActiveRecord::Base
+  attr_accessible :agent, :choices, :referer, :remote_ip
+
+  belongs_to :game
+
+  # GeoIPDataPath = File.absolute_path File.join(__FILE__, "../../../../../config")
+
+  def trace env, choices
+    # logger.info(env)
+
+    self.remote_ip = (env["HTTP_X_FORWARDED_FOR"] || env["REMOTE_ADDR"]).to_s
+    self.agent = env["HTTP_USER_AGENT"].to_s
+    self.choices = choices.join(',')
+    # self.country = geo_ip.country(self.remote_ip).country_name.to_s
+    # self.browser = user_agent.browser.to_s
+    # self.platform = user_agent.platform.to_s
+  end
+
+  # def user_agent
+  #   @user_agent ||= UserAgent.parse(self.agent)
+  # end
+
+  # def geo_ip
+  #   @geo_ip ||= GeoIP.new(File.join(GeoIPDataPath, 'GeoIP.dat'))
+  # end
+
+  # def geo_lite_city
+  #   @geo_ip ||= GeoIP.new(File.join(GeoIPDataPath, 'GeoLiteCity.dat'))
+  # end
+end
