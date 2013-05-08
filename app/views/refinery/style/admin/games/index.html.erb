@@ -5,3 +5,11 @@
   <%= render 'actions' %>
 </aside>
 <%= render '/refinery/admin/make_sortable', :tree => false if !searching? and ::Refinery::Style::Admin::GamesController.sortable? and ::Refinery::Style::Game.count > 1 %>
+
+<% content_for :stylesheets do %>
+  <style type="text/css">
+    #records .actions {
+      width: 150px;
+    }
+  </style>
+<% end %>

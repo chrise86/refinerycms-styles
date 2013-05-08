@@ -19,6 +19,7 @@ Refinery::Core::Engine.routes.append do
 
         member do
           get :edit_categories
+          get :analyze
         end
 
         # resources :image_categories, :except => :show do
