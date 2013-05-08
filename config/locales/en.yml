@@ -45,6 +45,11 @@ en:
             delete: Remove this image category forever
           form:
             create_new: Add New Image
+          image_category_fields:
+            create_new: Add New Image
+            remove_image_category: Remove Image Category
+          index:
+            create_new: Add New Image Category
           image_fields:
             remove_image: Remove Image
       image_categories:

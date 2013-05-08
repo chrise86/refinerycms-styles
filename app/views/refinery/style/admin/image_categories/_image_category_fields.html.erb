@@ -1,0 +1,58 @@
+<% category_id = f.object.id || 'new_image_categories' %>
+
+<div class="image_category fields">
+  <div class="left_part">
+    <table class="table">
+      <thead>
+        <th>Image</th>
+        <th>Name</th>
+        <% @game.styles.each do |style| %>
+          <th><%= style.name %></th>
+        <% end %>
+        <th></th>
+      </thead>
+      <tbody id="images_<%= category_id %>" class="field">
+        <%= f.fields_for :images do |builder| %>
+          <%= render "image_fields", :f => builder %>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to t('.create_new'), refinery.insert_admin_images_path(:dialog => true, :callback => "add_image_fields_#{category_id}"), :class => 'button' %>
+  </div>
+
+  <div class="right_part">
+    <h2>Category</h2>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :match_count %>
+      <%= f.text_field :match_count %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, :rows => 3 %>
+    </div>
+
+    <label></label>
+    <%= link_to_remove_fields t('.remove_image_category'), f, :class => 'button pull-right' %>
+  </div>
+  
+</div>
+
+<div class="cleanfix"></div>
+
+<script>
+  function add_image_fields_<%= category_id %>(image) {
+    var image_fields = "<%= escape_javascript(get_new_fields(f, :images)) %>";
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_images", "g");
+    $img = $(image);
+    $tr = $(image_fields.replace(regexp, new_id)).appendTo('#images_<%= category_id %>');
+    $tr.find('.image img').attr({src: $img.attr('src')});
+    $tr.find('.image input[type=hidden]').val($img.data('id'));
+  }
+</script>

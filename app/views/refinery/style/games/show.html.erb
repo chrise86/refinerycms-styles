@@ -14,7 +14,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
       Style.Models.Image.prototype.idAttribute = 'cid';
-      new Style.Routers.RecommendShow(<%= raw @categories.to_json %>);
+      new Style.Routers.GameShow(<%= raw @categories.to_json %>);
       Backbone.history.start();
     })
   </script>

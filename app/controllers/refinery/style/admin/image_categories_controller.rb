@@ -6,7 +6,9 @@ module Refinery
 
         crudify :'refinery/style/image_category', 
                 :class_name => '@scope',
-                :title_attribute => 'name', :xhr_paging => true
+                :title_attribute => 'name', 
+                :xhr_paging => true,
+                :sortable => false
 
         prepend_before_filter :find_scope
 
