@@ -1,8 +1,8 @@
-class Style.Views.RecommendsShow extends Backbone.View
+class Style.Views.GamesShow extends Backbone.View
 
-  template: JST['style/templates/recommends/show']
-  resources_template: JST['style/templates/recommends/show_resources']
-  choice_template: JST['style/templates/recommends/show_choice']
+  template: JST['style/templates/games/show']
+  resources_template: JST['style/templates/games/show_resources']
+  choice_template: JST['style/templates/games/show_choice']
 
   events:
     "click .next": "next_page"
