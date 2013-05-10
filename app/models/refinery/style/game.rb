@@ -142,7 +142,7 @@ module Refinery
               ret[key] << column
             end
           end
-          ret[:all_categories] << column
+          ret[:all_categories] << column if column
         end
 
         ret.to_json
@@ -151,17 +151,17 @@ module Refinery
   end
 end
 
-class DateTime
-  def all_months_until to
-    from = self
-    from, to = to, from if from > to
-    m = DateTime.new from.year, from.month
-    result = []
-    while m <= to
-      result << m
-      m >>= 1
-    end
+# class DateTime
+#   def all_months_until to
+#     from = self
+#     from, to = to, from if from > to
+#     m = DateTime.new from.year, from.month
+#     result = []
+#     while m <= to
+#       result << m
+#       m >>= 1
+#     end
     
-    result << m
-  end
-end
+#     result << m
+#   end
+# end
