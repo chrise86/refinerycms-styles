@@ -21,8 +21,10 @@
 <% content_for :javascripts do %>
   <script>
     function remove_fields(link) {
-      $(link).prev("input[type=hidden]").val("1");
-      $(link).closest(".fields").hide();
+      if (confirm("Are you sure you want to remove it?")) {
+        $(link).prev("input[type=hidden]").val("1");
+        $(link).closest(".fields").hide();
+      }
     }
 
     function add_fields(link, association, content) {
@@ -73,32 +75,36 @@
       width: 99%;
     }
     
-    #image_categories{
+    #image_categories {
       display: inline-block;
       width: 100%;
     }
 
-    #image_categories .image_category{
+    #image_categories .image_category {
       display: inline-block;
       width: 100%;
       margin-bottom: 50px;
     }
 
-    #image_categories .left_part{
+    #image_categories .left_part {
       width: 66%;
       float: left;
     }
 
-    #image_categories .right_part{
+    #image_categories .right_part {
       width: 33%;
       float: left;
     }
 
-    .pull-right{
+    #image_categories .image img {
+      width: 50px;
+    }
+
+    .pull-right {
       float: right;
     }
 
-    input.input-small{
+    input.input-small {
       width: 100px;
     }
   </style>

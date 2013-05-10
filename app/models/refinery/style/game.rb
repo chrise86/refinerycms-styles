@@ -61,6 +61,107 @@ module Refinery
           ActiveRecord::Base.connection.close
         end
       end
+
+      def analyze_clicks(type)
+        options = {
+          year: {
+            group_by: "%Y"
+          },
+          month: {
+            group_by: "%Y/%m",
+          },
+          day: {
+            group_by: "%Y/%m/%d",
+          },
+          hour: {
+            group_by: "%Y/%m/%d %H",
+          }
+        }
+
+        group_by = options[type][:group_by]
+
+        ret = {}
+        clicks.group("strftime('#{group_by}', created_at)")
+        .count.each do |key, value|
+          ret[Time.zone.parse(key)] = value
+        end
+        ret
+      end
+
+      def flot_clicks type = :auto
+        if type == :auto
+          dt = Time.now - clicks.first.created_at
+          if dt > 10.year
+            type = :year
+          elsif dt > 1.year
+            type = :month
+          elsif dt > 10.day
+            type = :day
+          else
+            type = :hour
+          end
+        end
+
+        data = analyze_clicks(type).map do |time, value| 
+          [time.to_i * 1000, value]
+        end
+
+        [{ data: data, bars: { barWidth: (1.send(type).to_i * 750) }}].to_json
+      end
+
+      def analyze_styles
+        count = {}
+        clicks.pluck(:choices).each do |choices|
+          choices.split(',').each do |choice|
+            c = choice.to_i
+            count[c] ||= 0
+            count[c] += 1
+          end
+        end
+        count
+      end
+
+      def flot_styles
+        image_map = {}
+        ret = {}
+        ret[:all_categories] = []
+        image_categories.each do |image_category|
+          key = image_category.name.parameterize('_')
+          image_map[key] = {}
+          ret[key] = []
+          image_category.images.each do |image|
+            image_map[key][image.id] = image.name
+          end
+        end
+
+        analyze_styles.map do |id, value|
+          column = nil
+          image_map.each do |key, map|
+            if map.include? id
+              column = { label: map[id], data: value }
+              ret[key] << column
+            end
+          end
+          ret[:all_categories] << column
+        end
+
+        ret.to_json
+      end
     end
+  end
+end
+
+class DateTime
+  def all_months_until to
+    from = self
+    from, to = to, from if from > to
+    m = DateTime.new from.year, from.month
+    result = []
+    while m <= to
+      result << m
+      m >>= 1
+    end
+    
+    result << m
   end
 end

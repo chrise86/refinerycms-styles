@@ -1,0 +1,121 @@
+<div class="chart">
+  <h2>All Clicks</h2>
+  <div id="clicks"></div>
+</div>
+<h2>Clicks for each Image</h2>
+<div id="styles">
+  <div class="chart">
+    <h2>Clicks for All Categories</h2>
+    <div id="category_all_categories"></div>
+  </div>
+  <% @game.image_categories.each do |image_category| %>
+    <div class="chart">
+      <h2>Clicks for Category `<%= image_category.name.titlecase %>'</h2>
+      <div id="category_<%= image_category.name.parameterize('_') %>"></div>
+    </div>
+  <% end %>
+</div>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      draw_clicks();
+      draw_all_styles();
+    });
+
+    function draw_clicks() {
+      var options = {
+        grid: {
+          show: true,
+          aboveData: true,
+          color: "#3f3f3f",
+          labelMargin: 5,
+          axisMargin: 0,
+          borderWidth: 0,
+          borderColor:null,
+          minBorderMargin: 5,
+          clickable: true,
+          hoverable: true,
+          autoHighlight: true,
+          mouseActiveRadius: 20,
+        },
+        colors: ["#0088cc", "#ee5f5b", "#fbb450", "#62c462", "#5bc0de", "#444444"],
+        series: {
+          bars: {
+            show: true,
+            fill: true,
+          },
+        },
+        xaxis: { 
+          mode: "time",
+          timezone: "browser",
+        },
+        yaxis: { tickDecimals: 0, min: 0 },
+        tooltip: true,
+        tooltipOpts: {
+          content: "<div class=\"tooltip\"><span><strong>%x</strong><br>Clicks: <strong>%y</strong></span></div>",
+          dateFormat: "%b %e, %Y %I:%M%p",
+          defaultTheme: false,
+        },
+      };
+      var data = <%= raw @game.flot_clicks %>;
+      $.plot("#clicks", data, options);
+    }
+
+    function draw_all_styles() {
+      var options = {
+        grid: {
+          show: true,
+          aboveData: true,
+          color: "#3f3f3f",
+          labelMargin: 5,
+          axisMargin: 0,
+          borderWidth: 0,
+          borderColor:null,
+          minBorderMargin: 5,
+          clickable: true,
+          hoverable: true,
+          autoHighlight: true,
+          mouseActiveRadius: 20,
+        },
+        colors: ["#0088cc", "#ee5f5b", "#fbb450", "#62c462", "#5bc0de", "#444444"],
+        series: {
+          pie: {
+            show: true,
+            highlight: { opacity: 0.1 },
+            startAngle: 2,
+          },
+        },
+        tooltip: true,
+        tooltipOpts: {
+          content: "<div class=\"tooltip\"><span><strong>%s</strong><br>Clicks: <strong>%y</strong></span></div>",
+          dateFormat: "%b %e, %Y %I:%M%p",
+          defaultTheme: false,
+        },
+      };
+      var data = <%= raw @game.flot_styles %>;
+      for (d in data) {
+        $.plot("#category_" + d, data[d], options);
+      }
+    }
+  </script>
+<% end %>
+
+<% content_for :stylesheets do %>
+  <style type="text/css">
+    .chart > div {
+      height: 300px;
+      margin-bottom: 50px;
+    }
+
+    #styles .chart {
+      float: left;
+      width: 50%;
+    }
+
+    .tooltip {
+      white-space: nowrap;
+      text-align: left;
+    }
+  </style>
+<% end %>
