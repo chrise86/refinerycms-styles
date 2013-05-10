@@ -2,7 +2,7 @@
 <%= render "/refinery/html_tag" %>
   <% site_bar = render('/refinery/site_bar', :head => true) -%>
   <%= render "/refinery/head" %>
-  <body>
+  <body id="iframe">
     <%= yield %>
     <%= render "/refinery/javascripts" %>
   </body>
