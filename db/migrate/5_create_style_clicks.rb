@@ -3,6 +3,7 @@ class CreateStyleClicks < ActiveRecord::Migration
     create_table :refinery_style_clicks do |t|
       t.belongs_to :game
       t.string :choices
+      t.string :result
       t.string :remote_ip
       t.string :agent
 
