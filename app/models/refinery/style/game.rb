@@ -23,6 +23,24 @@ module Refinery
         super(options)
       end
 
+      def sample_categories
+        categories = []
+        last_images = curr_images = []
+        image_categories.each do |category|
+          next if category.images.length < 2
+          (category.match_count || 1).times do
+            curr_images = category.images.sample(2) while curr_images == last_images
+            last_images = curr_images
+            categories << ImageCategory.new(
+              name: category.name, 
+              description: category.description,
+              images: curr_images
+            )
+          end
+        end
+        categories
+      end
+
       def make_choice images
         center = get_center(images)
         ret = center.max_by{|k,v|v} rescue center.to_a[0]
@@ -33,9 +51,11 @@ module Refinery
         sum = {}
         fields = styles.pluck(:id)
         fields.each do |field|
-          sum[field] = 0.0
           images.each do |point|
-            sum[field] += point.dynamic_attributes.fetch(field.to_s, 0).to_f
+            sum[field] ||= {}
+            sum[field][point.image_category_id] ||= 0.0
+            sum[field][point.image_category_id] += 
+              point.dynamic_attributes.fetch(field.to_s, 0).to_f
           end
         end
 
@@ -44,9 +64,10 @@ module Refinery
         fields.each do |field|
           ret[field] = 0.0
           points.each do |point|
-            ret[field] += point.dynamic_attributes.fetch(field.to_s, 0).to_f
+            ret[field] += 
+              point.dynamic_attributes.fetch(field.to_s, 0).to_f / 
+              sum[field][point.image_category_id]
           end
-          ret[field] /= sum[field]
         end
         logger.info "  Result: #{ret}"
         ret

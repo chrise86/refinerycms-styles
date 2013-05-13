@@ -14,17 +14,8 @@ module Refinery
       def show
         @game = Game.find(params[:id])
 
-        @categories = []
-        @game.image_categories.each do |category|
-          next if category.images.length < 2
-          (category.match_count || 1).times do
-            @categories << ImageCategory.new(
-              name: category.name, 
-              description: category.description,
-              images: category.images.sample(2)
-            )
-          end
-        end
+        @categories = @game.sample_categories
+
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @game in the line below:
         present(@page)
