@@ -21,11 +21,14 @@
   </a>
 </div>
 
-<div class="row cleanfix"></div>
-<% if @page > 0: %>
-  <div class="buttons">
-    <a class="button result">See the result now!</a>
-    <a class="button">Skip</a>
-    <a class="button pre">Go Back</a>
-  </div>
-<% end %>
+<div class="clearfix"></div>
+
+<div class="btn-group buttons">
+  <% if @page > 0: %>
+    <a class="btn result">See the result now!</a>
+    <a class="btn next">Skip</a>
+    <a class="btn pre">Go Back</a>
+  <% else: %>
+    <a class="btn next">Skip</a>
+  <% end %>
+</div>
