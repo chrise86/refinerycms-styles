@@ -35,6 +35,7 @@ class Style.Views.GamesShow extends Backbone.View
 
   pre_page: (e) ->
     @page -= 1
+    @choices.pop()
     @updateImages()
 
     false
