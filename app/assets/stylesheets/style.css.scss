@@ -1,0 +1,88 @@
+@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
+@import "bootstrap/mixins";
+// @import "bootstrap/type";
+
+#style {
+  overflow: hidden;
+  padding: 10px;
+}
+
+.choices {
+  text-align: center;
+  margin-bottom: 50px;
+
+  .choice {
+    @include transition(border-color linear .3s);
+    position: relative;
+    display: inline-block;
+    margin: 20px 10px;
+    vertical-align: top;
+    border: 10px solid white;
+    box-shadow: 0px 2px 5px #888;
+    background: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    line-height: 0;
+    cursor: pointer;
+    z-index: 998;
+  }
+
+  .over_choice {
+    z-index:999;
+  }
+
+  .choice > .description {
+    line-height:30px;
+    padding-top: 5px;
+    background:white;
+    @include transition(background-color linear .3s);
+  }
+
+  .choice:hover, .choice:hover > .description {
+    border-color:#8FE1F3;
+    background-color:#8FE1F3;
+    @include transition-duration(.3s);
+  }
+
+  .choice > img {
+    max-height: 350px;
+    max-width: 400px;
+  }
+
+  .choice.left {
+    @include rotate(-9deg);
+    margin-bottom: -15px;
+  }
+
+  .choice.right {
+    @include rotate(9deg);
+    margin-left: -15px;
+  }
+}
+
+.buttons {
+  text-align:center;
+  margin-bottom: 50px;
+
+  .btn {
+    padding:5px 10px;
+    display:inline-block;
+    background:#61b87b;
+    color:#EEEEEE;
+    font-family:Georgia;
+    border-radius:3px;
+    text-shadow: 1px 1px 0 #044d58;
+    min-width:100px;
+    text-align:center;
+    font-weight:bold;
+    text-transform:uppercase;
+    cursor:pointer;
+    @include transition(border-color linear .3s);
+  }
+  
+  .btn:hover {
+    background:#13bd47;
+    color:white;
+    @include transition-duration(.3s);
+  }
+}
