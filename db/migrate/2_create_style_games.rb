@@ -7,6 +7,9 @@ class CreateStyleGames < ActiveRecord::Migration
       t.belongs_to :user
       t.integer :position
 
+      t.text :custom_style
+      t.belongs_to :css_file
+
       t.timestamps
     end
 
