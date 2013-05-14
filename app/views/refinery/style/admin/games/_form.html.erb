@@ -13,6 +13,13 @@
     <%= f.text_area :description, :class => 'widest', :rows => 4 -%>
   </div>
 
+  <div class='field'>
+    <%= f.label :'css_file', 'Css file (optional)' -%>
+    <%= f.hidden_field :css_file_id %>
+    <% css_file_title = if @game.css_file then "#{@game.css_file.title} (#{@game.css_file.file_name})" else 'Select a css file' end %>
+    <%= link_to css_file_title, refinery.insert_admin_resources_path(:dialog => true, :callback => 'add_css_file_fields'), :id => 'game_css_file_link' %>
+  </div>
+
   <div class='field style_list'>
     <span class='label_with_help'>
       <%= f.label :styles, t('.included_styles'), :class => "title_label" %>
@@ -43,5 +50,20 @@
       var regexp = new RegExp("new_" + association, "g");
       $('#'+association).append(content.replace(regexp, new_id));
     }
+
+    function add_css_file_fields(file) {
+      $('#game_css_file_id').val(file.id);
+      $('#game_css_file_link').text(file.html);
+    }
   </script>
+<% end %>
+
+
+
+<% content_for :stylesheets do %>
+  <style type="text/css">
+    ul.checkboxes li {
+      padding-bottom: 5px;
+    }
+  </style>
 <% end %>
