@@ -2,7 +2,8 @@ module Refinery
   module Style
     class Game < Refinery::Core::BaseModel
 
-      attr_accessible :name, :description, :styles_attributes, :image_categories_attributes, :position
+      attr_accessible :name, :description, :styles_attributes, :image_categories_attributes, 
+        :css_file_id, :position
 
       has_many :styles
       has_many :image_categories
@@ -11,6 +12,8 @@ module Refinery
       has_many :clicks
       accepts_nested_attributes_for :styles, :allow_destroy => true
       accepts_nested_attributes_for :image_categories, :allow_destroy => true
+
+      belongs_to :css_file, :class_name => 'Refinery::Resource'
 
       acts_as_indexed :fields => [:name, :description]
 
@@ -73,10 +76,10 @@ module Refinery
         ret
       end
 
-      def trace env, choices
+      def trace env, choices, result
         Thread.new do
           click = clicks.new
-          click.trace env, choices
+          click.trace env, choices, result
           click.save
 
           ActiveRecord::Base.connection.close
