@@ -40,7 +40,8 @@ module Refinery
         :display_photo_names, :background_color, :title_text_align, :photo_name_text_align,
         :title_text_color, :description_text_color, :photo_name_text_color, 
         :title_font_family, :description_font_family, :photo_name_font_family, 
-        :title_font_size, :description_font_size, :photo_name_font_size
+        :title_font_size, :description_font_size, :photo_name_font_size,
+        :photo_height, :photo_width
 
       def serializable_hash(options={})
         options = { 

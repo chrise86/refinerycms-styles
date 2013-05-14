@@ -26,7 +26,7 @@
   <% end %>
 
   <style type="text/css">
-    #style .choices .choice .description {
+    #style .choices .choice > .description {
       <% if @game.display_photo_names.blank? or 
         @game.display_photo_names == "0" %>
         display: none;
@@ -35,6 +35,11 @@
       <%= "color: #{@game.photo_name_text_color};" if @game.photo_name_text_color.present? %>
       <%= "font-family: #{@game.photo_name_font_family};" if @game.photo_name_font_family.present? %>
       <%= "font-size: #{@game.photo_name_font_size};" if @game.photo_name_font_size.present? %>
+    }
+
+    #style .choices .choice > img {
+      <%= "max-height: #{@game.photo_size};" if @game.photo_height.present? %>
+      <%= "max-width: #{@game.photo_size};" if @game.photo_width.present? %>
     }
 
     #style {
