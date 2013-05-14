@@ -27,7 +27,7 @@ module Refinery
       @game = Game.find(params[:id])
       @images = Image.find_all_by_id(params[:choices])
       @style = @game.make_choice(@images)
-      @game.trace env, params[:choices], @style.id
+      @game.trace env, @images, @style
        
       respond_to do |format|
         format.json { render json: @style.to_json }
