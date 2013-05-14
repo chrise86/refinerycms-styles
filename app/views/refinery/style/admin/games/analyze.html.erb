@@ -15,15 +15,19 @@
     </div>
   <% end %>
 </div>
+<div class="chart">
+  <h2>Results</h2>
+  <div id="results"></div>
+</div>
 
 <% content_for :javascripts do %>
   <script type="text/javascript">
     $(document).ready(function() {
-      draw_clicks();
-      draw_all_styles();
+      draw_bars();
+      draw_pies();
     });
 
-    function draw_clicks() {
+    function draw_bars() {
       var options = {
         grid: {
           show: true,
@@ -62,7 +66,7 @@
       $.plot("#clicks", data, options);
     }
 
-    function draw_all_styles() {
+    function draw_pies() {
       var options = {
         grid: {
           show: true,
@@ -97,6 +101,8 @@
       for (d in data) {
         $.plot("#category_" + d, data[d], options);
       }
+      data = <%= raw @game.flot_results %>;
+      $.plot("#results", data, options);
     }
   </script>
 <% end %>
