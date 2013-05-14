@@ -12,6 +12,8 @@ module Refinery
       has_many :images, through: :image_categories
 
       has_many :clicks
+      has_many :clicks_images, through: :clicks
+
       accepts_nested_attributes_for :styles, :allow_destroy => true
       accepts_nested_attributes_for :image_categories, :allow_destroy => true
 
@@ -101,13 +103,13 @@ module Refinery
       end
 
       def trace env, choices, result
-        Thread.new do
+        # Thread.new do
           click = clicks.new
           click.trace env, choices, result
           click.save
 
-          ActiveRecord::Base.connection.close
-        end
+        #   ActiveRecord::Base.connection.close
+        # end
       end
 
       def analyze_clicks(type)
@@ -137,6 +139,7 @@ module Refinery
       end
 
       def flot_clicks type = :auto
+        return [].to_json unless clicks.any?
         if type == :auto
           dt = Time.now - clicks.first.created_at
           if dt > 10.year
@@ -157,40 +160,39 @@ module Refinery
         [{ data: data, bars: { barWidth: (1.send(type).to_i * 750) }}].to_json
       end
 
-      def analyze_styles
-        count = {}
-        clicks.pluck(:choices).each do |choices|
-          choices.split(',').each do |choice|
-            c = choice.to_i
-            count[c] ||= 0
-            count[c] += 1
-          end
-        end
-        count
+      def analyze_styles conditions = {}
+        clicks_images.where(conditions).group("image").count
       end
 
       def flot_styles
-        image_map = {}
-        ret = {}
-        ret[:all_categories] = []
-        image_categories.each do |image_category|
-          key = image_category.name.parameterize('_')
-          image_map[key] = {}
-          ret[key] = []
-          image_category.images.each do |image|
-            image_map[key][image.id] = image.name
-          end
+        formater = Proc.new do |image, value|
+          { label: image.name, data: value}
         end
 
-        analyze_styles.map do |id, value|
-          column = nil
-          image_map.each do |key, map|
-            if map.include? id
-              column = { label: map[id], data: value }
-              ret[key] << column
-            end
-          end
-          ret[:all_categories] << column if column
+        ret = {}
+        ret[:all_categories] = analyze_styles.map &formater
+
+        image_categories.each do |image_category|
+          key = image_category.name.parameterize('_')
+          ret[key] = analyze_styles(:image_id => image_category.images).map &formater
+        end
+
+        ret.each do |key, value|
+          ret[key]
+        end
+
+        ret.to_json
+      end
+
+      def analyze_results
+        clicks.group("result").count
+      end
+
+      def flot_results
+        ret = []
+
+        analyze_results.map do |style, value|
+          ret << { label: style.name, data: value }
         end
 
         ret.to_json
@@ -198,18 +200,3 @@ module Refinery
     end
   end
 end
-
-# class DateTime
-#   def all_months_until to
-#     from = self
-#     from, to = to, from if from > to
-#     m = DateTime.new from.year, from.month
-#     result = []
-#     while m <= to
-#       result << m
-#       m >>= 1
-#     end
-    
-#     result << m
-#   end
-# end
