@@ -18,3 +18,9 @@
     })
   </script>
 <% end %>
+
+<% if @game.css_file %>
+  <% content_for :stylesheets do %>
+    <link href="<%= @game.css_file.url %>" rel="stylesheet">
+  <% end %>
+<% end %>
