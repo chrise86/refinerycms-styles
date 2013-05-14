@@ -1,0 +1,91 @@
+<div id='more_options_field'>
+  <p>
+    <%= link_to t('.advanced_options'), "#",
+                :id => 'toggle_advanced_options',
+                :title => t('.toggle_advanced_options') %>
+  </p>
+</div>
+<div id='more_options' style="display:none;">
+  <div class="hemisquare">
+    <h2><%= t('.custom_style_options') %></h2>
+
+    <div class='field'>
+      <%= f.label :css_file, t('.css_file') -%>
+      <%= render '/refinery/admin/resource_picker',
+                 :f => f,
+                 :field => :css_file_id,
+                 :resource => @game.css_file -%>
+    </div>
+    
+    <% text_alignments = %w(left center right) %>
+    
+    <div class='field'>
+      <%= f.check_box :display_photo_names -%>
+      <%= f.label :display_photo_names, :class => 'stripped' -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :title_text_align -%>
+      <%= f.select :title_text_align, text_alignments -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :photo_name_text_align -%>
+      <%= f.select :photo_name_text_align, text_alignments -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :title_font_family -%>
+      <%= f.text_field :title_font_family, :class => 'fontpicker' -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :description_font_family -%>
+      <%= f.text_field :description_font_family, :class => 'fontpicker' -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :photo_name_font_family -%>
+      <%= f.text_field :photo_name_font_family, :class => 'fontpicker' -%>
+    </div>
+
+  </div>
+
+  <div class="hemisquare right_side">
+    <div class='field'>
+      <%= f.label :background_color -%>
+      <%= f.text_field :background_color, :class => 'colorpicker' -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :title_text_color -%>
+      <%= f.text_field :title_text_color, :class => 'colorpicker' -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :description_text_color -%>
+      <%= f.text_field :description_text_color, :class => 'colorpicker' -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :photo_name_text_color -%>
+      <%= f.text_field :photo_name_text_color, :class => 'colorpicker' -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :title_font_size -%>
+      <%= f.text_field :title_font_size -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :description_font_size -%>
+      <%= f.text_field :description_font_size -%>
+    </div>
+
+    <div class='field'>
+      <%= f.label :photo_name_font_size -%>
+      <%= f.text_field :photo_name_font_size -%>
+    </div>
+
+  </div>
+</div>

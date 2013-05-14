@@ -1,6 +1,7 @@
 <div class="row" id="style">
   <div class="page-header">
-    <h1><%= @game.name %> <small>finds your style</small></h1>
+    <h1><%= @game.name %></h1>
+    <h2>finds your style</h2>
   </div>
 
   <div id="container">
@@ -19,8 +20,41 @@
   </script>
 <% end %>
 
-<% if @game.css_file %>
-  <% content_for :stylesheets do %>
+<% content_for :stylesheets do %>
+  <% if @game.css_file %>
     <link href="<%= @game.css_file.url %>" rel="stylesheet">
   <% end %>
+
+  <style type="text/css">
+    #style .choices .choice .description {
+      <% if @game.display_photo_names.blank? or 
+        @game.display_photo_names == "0" %>
+        display: none;
+      <% end %>
+      <%= "text-align: #{@game.photo_name_text_align};" if @game.photo_name_text_align.present? %>
+      <%= "color: #{@game.photo_name_text_color};" if @game.photo_name_text_color.present? %>
+      <%= "font-family: #{@game.photo_name_font_family};" if @game.photo_name_font_family.present? %>
+      <%= "font-size: #{@game.photo_name_font_size};" if @game.photo_name_font_size.present? %>
+    }
+
+    #style {
+      <%= "background-color: #{@game.background_color};" if @game.background_color.present? %>
+    }
+    
+    #style .page-header {
+      <%= "text-align: #{@game.title_text_align};" if @game.title_text_align.present? %>
+    }
+
+    #style .page-header h1 {
+      <%= "color: #{@game.title_text_color};" if @game.title_text_color.present? %>
+      <%= "font-family: #{@game.title_font_family};" if @game.title_font_family.present? %>
+      <%= "font-size: #{@game.title_font_size};" if @game.title_font_size.present? %>
+    }
+
+    #style .page-header h2 {
+      <%= "color: #{@game.description_text_color};" if @game.description_text_color.present? %>
+      <%= "font-family: #{@game.description_font_family};" if @game.description_font_family.present? %>
+      <%= "font-size: #{@game.description_font_size};" if @game.description_font_size.present? %>
+    }
+  </style>
 <% end %>

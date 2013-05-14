@@ -3,7 +3,7 @@
     <%= image_tag f.object.thumb_url %>
     <%= f.hidden_field :image_id %>
   </td>
-  <td><%= f.text_field :name, :class => 'input-small' %></td>
+  <td class="name"><%= f.text_field :name, :class => 'input-small' %></td>
   <%= f.fields_for :dynamic_attributes do |builder| %>
     <% dynamic_attributes = f.object.dynamic_attributes || {} %>
     <% @game.styles.each do |style| %>

@@ -10,13 +10,13 @@
   <a class="next" data-id="<%= left_image.get 'id' %>">
     <div class="choice left">
       <img src="<%= left_image.get 'image_url' %>">
-      <div class="description"><%= left_image.get 'title' %></div>
+      <div class="description"><%= left_image.get 'name' %></div>
     </div>
   </a>
   <a class="next" data-id="<%= right_image.get 'id' %>">
     <div class="choice right">
       <img src="<%= right_image.get 'image_url' %>">
-      <div class="description"><%= right_image.get 'title' %></div>
+      <div class="description"><%= right_image.get 'name' %></div>
     </div>
   </a>
 </div>

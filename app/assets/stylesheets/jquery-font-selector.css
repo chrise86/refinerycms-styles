@@ -1,0 +1,40 @@
+ul.fontselector {
+  position: absolute;
+  background: white;
+  border: 1px solid #7f9db9;
+  border: solid 1px #CCC;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+  font-size: 14px;
+  list-style: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  display: none;
+}
+
+ul.fontselector li {
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+ul.fontselector a {
+  display: block;
+  padding: 3px;
+  color: black;
+  text-decoration: none;
+}
+
+ul.fontselector a:hover {
+  background: #ddd;
+  cursor: pointer;
+}
+
+select {
+  border: 1px solid #7f9db9;
+  padding: 0.6% 1%;
+  background: white;
+}

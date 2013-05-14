@@ -54,5 +54,6 @@
     $tr = $(image_fields.replace(regexp, new_id)).appendTo('#images_<%= category_id %>');
     $tr.find('.image img').attr({src: $img.attr('src')});
     $tr.find('.image input[type=hidden]').val($img.data('id'));
+    $tr.find('.name input').val($img.attr('title'));
   }
 </script>

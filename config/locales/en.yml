@@ -15,8 +15,7 @@ en:
           records:
             title: Games
             sorry_no_results: Sorry! There are no results found.
-            no_items_yet: There are no Games yet. Click "Add New Game" to add your
-              first game.
+            no_items_yet: There are no Games yet. Click "Add New Game" to add your first game.
           game:
             view_live_html: View this game live <br/><em>(opens in a new window)</em>
             edit: Edit this game
@@ -37,6 +36,10 @@ en:
           image_category_fields:
             create_new: Add New Image
             remove_image_category: Remove Image Category
+          form_advanced_options:
+            advanced_options: Advanced Options
+            custom_style_options: Custom Style Options
+            css_file: Css file (optional)
       image_categories:
         show:
           other: Other Image Categories

@@ -3,7 +3,9 @@ module Refinery
     class Game < Refinery::Core::BaseModel
 
       attr_accessible :name, :description, :styles_attributes, :image_categories_attributes, 
-        :css_file_id, :position
+        :css_file_id, :custom_style, :position
+
+      serialize :custom_style
 
       has_many :styles
       has_many :image_categories
@@ -18,6 +20,27 @@ module Refinery
       acts_as_indexed :fields => [:name, :description]
 
       validates :name, :presence => true, :uniqueness => true
+
+      def self.serialized_attr_accessor(serialize, *args)
+        args.each do |method_name|
+          define_method method_name do
+            (self.send(serialize) || {})[method_name]
+          end
+
+          define_method "#{method_name}=" do |value|
+            self.send("#{serialize}=", {}) unless self.send(serialize)
+            self.send(serialize)[method_name] = value
+          end
+        end
+
+        attr_accessible *args
+      end
+
+      serialized_attr_accessor :custom_style, 
+        :display_photo_names, :background_color, :title_text_align, :photo_name_text_align,
+        :title_text_color, :description_text_color, :photo_name_text_color, 
+        :title_font_family, :description_font_family, :photo_name_font_family, 
+        :title_font_size, :description_font_size, :photo_name_font_size
 
       def serializable_hash(options={})
         options = { 
